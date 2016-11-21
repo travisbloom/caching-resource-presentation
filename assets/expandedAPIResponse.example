@@ -1,0 +1,12 @@
+const expandedAPIResponse = {
+    id: 194
+    //...trip fields
+    employee: {
+        id: 318
+        //...employee fields
+        organization: {
+            id: 638,
+            //...organization fields
+        }
+    }
+}

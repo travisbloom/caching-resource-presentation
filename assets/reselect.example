@@ -1,0 +1,40 @@
+//split mapStateToProps logic out, combine one object
+const denormalizeTrip = (state, tripId) => {
+    const trip = state.trips.resources[tripId];
+    const employee = state.employees.resources[trip.employee]
+    const organization = state.organizations.resources[employee.organization];
+    return {
+        ...trip,
+        employee: {
+            ...employee,
+            organization
+        }
+    }
+}
+
+import {createSelector} from 'reselect';
+
+const selectTrip = createSelector(
+    (state, tripId) => state.trips.resources[tripId],
+    (state) => state.employees.resources,
+    (state) => state.organization.resources,
+    (trip, employees, organizations) => {
+        const employee = employees[trip.employee]
+        const organization = organizations[employee.organization]
+        return {
+            ...trip,
+            employee: {
+                ...employee,
+                organization
+            }
+        }
+    }
+)
+
+class TripDetails = ({trip}) => (
+    //some UI
+)
+const mapStateToProps = (state, {tripId}) => ({
+    trip: selectTrip(state, tripId)
+});
+export default connect(mapStateToProps)(TripDetails);

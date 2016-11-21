@@ -1,0 +1,24 @@
+//later on when a trip is added to the state
+const newState = {
+    trips: {
+        resources: {
+            194: {
+                //...info about trip 194
+            }
+        }
+    },
+    employees: {
+        resources: {
+            318: {
+                //...info about employee 318
+            }
+        }
+    },
+    organizations: {
+        resources: {
+            638: {
+                //...info about organization 638
+            }
+        }
+    }
+}

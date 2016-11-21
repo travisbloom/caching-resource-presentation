@@ -1,0 +1,23 @@
+const trip1 = {
+    //...trip fields
+    employee: {
+        id: 318,
+        firstName: Travis,
+        organization: {
+            id: 638,
+            name: Rocketrip
+        }
+    }
+}
+
+const trip2 = {
+    //...trip fields
+    employee: {
+        id: 318,
+        firstName: Travis,
+        organization: {
+            id: 638,
+            name: Rocketrip
+        }
+    }
+}

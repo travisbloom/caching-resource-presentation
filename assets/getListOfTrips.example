@@ -1,0 +1,28 @@
+get('/trips').then((response) => {
+    //assumes the response is a list of IDs
+    return Promise.all(response.map((id) =>
+        get(`/trips/${id}`)
+    ))
+})
+
+const getTrip = (id) => get(`/trips/${id}`)
+const getTripEmployee = (trip) => (
+    get(`/employees/${trip.employeeId}`)
+        .then((employee) => ({
+            ...trip,
+            employee
+        }))
+)
+const getTripOrg = (trip) => (
+    get(`/orgs/${trip.employee.orgId}`)
+        .then((org) => ({
+            ...trip,
+            employee: {
+                ...employee,
+                org
+            }
+        }))
+)
+getTrip(id)
+    .then(getTripEmployee)
+    .then(getTripOrg)

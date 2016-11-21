@@ -1,0 +1,5 @@
+class TripSerializer(serializers.ModelSerializer):
+    traveler_employee = EmployeeSerializer(read_only=True)
+
+class EmployeeSerializer(serializers.ModelSerializer):
+    organization = OrganizationSerializer(read_only=True)

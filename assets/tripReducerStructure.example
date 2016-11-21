@@ -1,0 +1,25 @@
+const initialState = {
+    resources: {}
+}
+
+function trips(state = initialState, action) {
+    switch(action.type) {
+        case(CREATE_TRIP):
+        //....add created trip to state
+        case(RETRIEVE_TRIP):
+        //....add retrieved trip to state
+        case(UPDATE_TRIP):
+        //....add updated trip to state
+        case(DELETE_TRIP):
+        //....add deleted trip to state
+        case(LIST_TRIP):
+        //....add a list of trips to state
+    }
+}
+
+function employee(state = initialState, action) {
+    //...reducer logic
+}
+function organization(state = initialState, action) {
+    //...reducer logic
+}

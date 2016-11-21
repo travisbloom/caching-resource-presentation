@@ -1,0 +1,16 @@
+import { Schema, normalize } from 'normalizr'
+
+const organizationSchema = new Schema('organizations')
+const employeeSchema = new Schema('employees')
+employeeSchema.define({
+    organization: organizationSchema
+})
+const tripSchema = new Schema('trips')
+tripSchema.define({
+    travelerEmployee: employeeSchema
+})
+
+//when you get back the expanded api response
+getTrip(id).then((expandedAPIResponse) =>
+    normalize(expandedAPIResponse, tripSchema)
+)

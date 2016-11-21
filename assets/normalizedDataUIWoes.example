@@ -1,0 +1,17 @@
+const TripDetails = ({trip, tripEmployee, tripEmployeeOrganization}) => (
+    //rendered ui
+)
+
+const mapStateToProps = (state, {tripId}) => {
+    const {trips, employees, organizations} = state;
+    const trip = trips.resources[tripId];
+    const tripEmployee = employees.resources[trip.employee];
+    const tripEmployeeOrganization = organizations.resources[employee.organization];
+    return {
+        trip,
+        tripEmployee,
+        tripEmployeeOrganization
+    }
+}
+
+connect(mapStateToProps)(TripDetails)
