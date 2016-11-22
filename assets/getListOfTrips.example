@@ -23,6 +23,8 @@ const getTripOrg = (trip) => (
             }
         }))
 )
-getTrip(id)
-    .then(getTripEmployee)
-    .then(getTripOrg)
+const getFullTrip = (id) => (
+    getTrip(id)
+        .then(getTripEmployee)
+        .then(getTripOrg)
+)

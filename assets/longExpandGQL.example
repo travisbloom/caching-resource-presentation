@@ -1,0 +1,15 @@
+const query = `{
+    trip(id: 147) {
+        employee {
+            firstName
+            lastName
+            organization {
+                name
+            }
+        },
+        budgets {
+            comments
+            budgetTemplateSnapshot
+        }
+    }
+}`

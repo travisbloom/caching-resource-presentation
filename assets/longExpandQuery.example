@@ -1,0 +1,10 @@
+const expandTripParams = [
+    'employee',
+    'employee.organization',
+    'budgets',
+    'budgets.budgetTemplateSnapshot',
+    'budgets.comments'
+];
+const tripId = 147;
+
+getTrip(tripId, expandTripParams)

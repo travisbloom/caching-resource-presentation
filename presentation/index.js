@@ -11,6 +11,7 @@ import {
   Image,
   Layout,
   Link,
+  Appear,
   ListItem,
   List,
   Slide,
@@ -34,6 +35,7 @@ const images = {
     spinner: require('../assets/spinner.gif'),
     djangoRest: require('../assets/djangorest.png'),
     individualResourceREST: require('../assets/individualResourceREST.jpg'),
+    mindBlown: require('../assets/mindBlown.gif'),
     sad: require('../assets/sad.gif'),
     city: require('../assets/city.jpg'),
     kat: require('../assets/kat.png'),
@@ -89,7 +91,9 @@ const Presentation = () => (
                     </Fill>
                     <Fill>
                         <Text textAlign="left">/Trips/TripToAtlanta</Text>
-                        <Image width="30%" src={images.spinner} />
+                        <Appear>
+                            <Image width="30%" src={images.spinner} />
+                        </Appear>
                     </Fill>
                 </Layout>
             </Slide>
@@ -158,7 +162,7 @@ const Presentation = () => (
                     { loc: [7, 8], note: 'Individual trip' },
                     { loc: [8, 15] },
                     { loc: [15, 25] },
-                    { loc: [25, 29], note: '3 roundtrip requests to load a page' },
+                    { loc: [25, 31], note: '3 roundtrip requests to load a page' },
                 ]}
             />
             <Slide
@@ -199,7 +203,7 @@ const Presentation = () => (
                 <List textColor="white" margin="auto 20px">
                     <ListItem textColor="primary">Normalizr</ListItem>
                     <ListItem>Redux</ListItem>
-                    <ListItem>Selectors/Validators</ListItem>
+                    <ListItem>Selectors</ListItem>
                 </List>
             </Slide>
             <Slide
@@ -302,7 +306,7 @@ const normalizedAPIResponse = {
                 <List textColor="white" margin="auto 20px">
                     <ListItem>Normalizr</ListItem>
                     <ListItem textColor="primary">Redux</ListItem>
-                    <ListItem>Selectors/Validators</ListItem>
+                    <ListItem>Selectors</ListItem>
                 </List>
             </Slide>
             <Slide
@@ -361,7 +365,7 @@ const normalizedAPIResponse = {
                 <List textColor="white" margin="auto 20px">
                     <ListItem>Normalizr</ListItem>
                     <ListItem>Redux</ListItem>
-                    <ListItem textColor="primary">Selectors/Validators</ListItem>
+                    <ListItem textColor="primary">Selectors</ListItem>
                 </List>
             </Slide>
             <Slide
@@ -384,7 +388,7 @@ const normalizedAPIResponse = {
                         Brittle to changes in reducer state
                     </ListItem>
                     <ListItem>
-                        Confusing to reason about
+                        Confusing to understand
                     </ListItem>
                 </List>
             </Slide>
@@ -396,10 +400,10 @@ const normalizedAPIResponse = {
                 code={require('../assets/reselect.example')}
                 ranges={[
                     { loc: [0, 13], note: 'move select logic out of mapStateToProps, denorm' },
-                    { loc: [14, 15], note: 'Reselect' },
+                    { loc: [14, 15] },
                     { loc: [16, 20], notes: 'Define inputs to memoized function' },
                     { loc: [20, 30] },
-                    { loc: [32, 39] },
+                    { loc: [32, 41] },
                 ]}
             />
             <Slide
@@ -407,16 +411,49 @@ const normalizedAPIResponse = {
                 transition={['slide']}
                 bgColor="black"
                 notes={`
+                    example of expand params we pass in. Be great to be able to specify these fields in the format they're returned. Interal aha moment
                 `}
             >
                 <Heading size={4} caps textColor="primary">
-                    Reselect
+                    {'What\'s Next?'}
                 </Heading>
-                <CodePane
-                    lang="javascript"
-                    source={require('../assets/reselect.example')}
-                    padding="20px auto"
-                />
+                <Layout>
+                    <Fill>
+                        <CodePane
+                            lang="javascript"
+                            source={require('../assets/longExpandQuery.example')}
+                            padding="20px auto"
+                        />
+                        <Appear>
+                            <CodePane
+                                lang="javascript"
+                                source={require('../assets/longExpandGQL.example')}
+                                padding="20px auto"
+                            />
+                        </Appear>
+                    </Fill>
+                    <Fill>
+                        <Appear>
+                            <Image width="80%" src={images.mindBlown} />
+                        </Appear>
+                    </Fill>
+                </Layout>
+            </Slide>
+            <Slide>
+                <Heading size={4} textColor="black">
+                    GraphQL
+                </Heading>
+                <video autoPlay="true" loop="" playsInline="">
+                    <source src="http://graphql.org/img/graphiql.mp4?x" type="video/mp4" />
+                </video>
+            </Slide>
+            <Slide>
+                <Heading size={4} textColor="black">
+                    @travisbloom
+                </Heading>
+                <Heading size={4} textColor="black">
+                    We're hiring!
+                </Heading>
             </Slide>
         </Deck>
     </Spectacle>
